@@ -28,7 +28,6 @@ const IndexPage = () => (
 
     <p>Veckans efterrätt: {desserts[Math.floor(Math.random()*desserts.length)]}</p>
 
-
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
