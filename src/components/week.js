@@ -29,22 +29,23 @@ const Week = class extends React.Component {
         })
     }
 
-    renderRecipes(day) {
-        let weekDays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
-
-        return weekDays.map((day, id) => {
-            return <li><button onClick={() => this.newRecipe(id)}><img width="10px" src="/iconfinder_icons_update_1564533.png" /></button> {day}: {this.state.weekList[id]}</li>
+    renderRecipes(list) {
+        return list.map((list, id) => {
+            return <li><button onClick={() => this.newRecipe(id)}><img width="10px" src="/iconfinder_icons_update_1564533.png" /></button> {list}: {this.state.weekList[id]}</li>
         }) 
     }
 
     render() {
+        let weekDays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+        let dessert = ["Dessert"];
+
         return (
             <div>
                 <ol>
-                    {this.renderRecipes(0)}
+                    {this.renderRecipes(weekDays)}
                 </ol>
 
-                <p>Veckans efterrätt: {this.state.dessert}</p>
+                <p>Veckans efterrätt: {this.renderRecipes(dessert)}</p>
             </div>
         )
     }
