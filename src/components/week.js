@@ -29,17 +29,19 @@ const Week = class extends React.Component {
         })
     }
 
+    renderRecipes(day) {
+        let weekDays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+
+        return weekDays.map((day, id) => {
+            return <li><button onClick={() => this.newRecipe(id)}><img width="10px" src="/iconfinder_icons_update_1564533.png" /></button> {day}: {this.state.weekList[id]}</li>
+        }) 
+    }
+
     render() {
         return (
             <div>
                 <ol>
-                    <li>Måndag: {this.state.weekList[0]} <button onClick={() => this.newRecipe(0)}>Byt recept</button></li>
-                    <li>Tisdag: {this.state.weekList[1]}</li>
-                    <li>Onsdag: {this.state.weekList[2]}</li>
-                    <li>Torsdag: {this.state.weekList[3]}</li>
-                    <li>Fredag: {this.state.weekList[4]}</li>
-                    <li>Lördag: {this.state.weekList[5]}</li>
-                    <li>Söndag: {this.state.weekList[6]}</li>
+                    {this.renderRecipes(0)}
                 </ol>
 
                 <p>Veckans efterrätt: {this.state.dessert}</p>
